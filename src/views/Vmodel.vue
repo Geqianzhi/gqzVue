@@ -23,7 +23,7 @@
                 {
                     text:'测试v-model',
                     list:[
-                        {name:"vue2.0",id:1},
+                        {name:"vue2.6666666",id:1},
                         {name:"vue3.0",id:2},
                         {name:"react16.8",id:3}
                     ]
