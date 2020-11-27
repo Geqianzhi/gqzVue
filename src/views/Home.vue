@@ -1,12 +1,12 @@
 <template>
   <section class="home">
-        <div class="sidebar">
-            <sidebar></sidebar>
-        </div>
-        <div class="content">
-            <my-title :title="title" />
-            <router-view></router-view>
-        </div>       
+        <a-layout class="layout">
+          <a-layout-sider width="240" :collapsible='true'>Sider</a-layout-sider>
+          <a-layout>
+            <a-layout-header>Header</a-layout-header>
+            <a-layout-content>Content</a-layout-content>
+          </a-layout>
+        </a-layout>
   </section>
 </template>
 
@@ -32,18 +32,14 @@ export default {
 .home{
     height: 100%;
     width: 100%;
-    display: flex;
-
-    .sidebar{
-      width: 240px;
+    .layout{
       height: 100%;
-      overflow: auto;
-      box-sizing: border-box;
-      border-right:1px solid rgb(218, 214, 214);
-    }
-    .content{
-      width: calc(100% - 240px);
-      height:calc(100% - 48px);
+      .ant-layout-header{
+        background-color: #eee;
+      }
+      .ant-layout-content{
+        background-color: #fff;
+      }
     }
 }
 </style>
