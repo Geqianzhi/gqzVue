@@ -1,7 +1,7 @@
 <template>
   <section class="home">
         <a-layout class="layout">
-          <a-layout-sider width="240" :collapsible='true'>
+          <a-layout-sider width="240" collapsible @collapse="collapseClick">
             <a-menu
               v-model:openKeys="Menu.openKeys"
               v-model:selectedKeys="Menu.selectedKeys"
@@ -21,8 +21,9 @@
                     </a-menu-item>                   
                   </a-sub-menu>
                   <a-menu-item :key="item.path" v-else>
-                    <router-link :to="item.path">
-                      <InboxOutlined />{{item.label}}
+                    <InboxOutlined />
+                    <router-link :to="item.path" custom v-slot="{ navigate}">
+                        <span @click="navigate">{{item.label}}</span>
                     </router-link>
                   </a-menu-item>
               </template>
@@ -78,13 +79,16 @@ export default {
       const title = computed(()=> `${route.name}`);
       const {Menu,MenuClick}  = Menus();
       const routes = ref([...childrenRouters])
-      
+      function collapseClick(collapse, type){
+          collapsed.value = collapse
+      }
       return{
           title,
           collapsed,
           Menu,
           MenuClick,
-          routes
+          routes,
+          collapseClick
       }
   }
 };
@@ -101,6 +105,10 @@ export default {
       }
       .ant-layout-content{
         background-color: #fff;
+      }
+      .ant-menu-item > a {
+          display: inline;
+          color: #fff;
       }
     }
 }
