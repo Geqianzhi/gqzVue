@@ -8,7 +8,7 @@ import './styles/normalize.css';
 import './styles/common.css';
 import 'ant-design-vue/dist/antd.css';
 const app = createApp(App);
-
+app.config.productionTip = false;
 Object.keys(components.components).forEach(e =>{
     app.component(e,components.components[e])
 })
