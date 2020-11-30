@@ -32,7 +32,7 @@
             </a-menu>
           </a-layout-sider>
           <a-layout>
-            <a-layout-header>Header</a-layout-header>
+            <a-layout-header class="header">Header</a-layout-header>
             <a-layout-content>
               <router-view></router-view>
             </a-layout-content>
@@ -99,10 +99,6 @@ export default {
     width: 100%;
     .layout{
       height: 100%;
-      .ant-layout-header{
-        background-color: #eee;
-        padding: 0;
-      }
       .ant-layout-content{
         background-color: #fff;
       }
@@ -110,6 +106,18 @@ export default {
           display: inline;
           color: #fff;
       }
+    }
+    .header {
+        background-color: #eee;
+        padding: 0;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        display: flex;
+        align-items: center;
+    }
+   .header:hover {
+        box-shadow: 0 -3px 5px rgba(0,0,0,0.25), 0 5px 7px rgba(0,0,0,0.22);
     }
 }
 </style>
